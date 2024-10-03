@@ -2,7 +2,11 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-/[Ll]ibrary/
+
+# Ignore all Library directories
+**/[Ll]ibrary/
+
+# Other Unity-specific ignore rules
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
