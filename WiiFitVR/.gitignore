@@ -1,0 +1,77 @@
+# Unityプロジェクトのルートディレクトリにこの.gitignoreファイルを配置してください
+#
+# 最新のバージョンは以下のURLから入手可能です
+# https://github.com/github/gitignore/blob/main/Unity.gitignore
+#
+
+# Library, Temp, Obj, Build, Logs, UserSettingsは無視
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# MemoryCapturesはサイズが大きくなる可能性があるため無視
+/[Mm]emoryCaptures/
+
+# 録画ファイルはサイズが大きくなる可能性があるため無視
+/[Rr]ecordings/
+
+# AssetStoreToolsプラグインを無視したい場合はこの行のコメントを解除してください
+# /[Aa]ssets/AssetStoreTools*
+
+# Jetbrains Riderプラグインの自動生成ファイルを無視
+/[Aa]ssets/Plugins/Editor/JetBrains*
+
+# Visual Studioのキャッシュディレクトリを無視
+.vs/
+
+# Gradleのキャッシュディレクトリを無視
+.gradle/
+
+# VS/MD/Consuloの自動生成ソリューションとプロジェクトファイルを無視
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unityが生成するmetaファイルを無視
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unityのクラッシュレポート時に生成されるファイルを無視
+sysinfo.txt
+
+# ビルドファイルを無視
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Crashlyticsが生成するファイルを無視
+crashlytics-build.properties
+
+# Addressablesのパッケージファイルを無視
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Android向けの一時ファイルを無視
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# 以下はAssetsフォルダ内のファイルを除外しないようにするために記述しています
+!/[Aa]ssets/
