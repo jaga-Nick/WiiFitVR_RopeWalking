@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         // ジャンプ処理（地面にいる時のみジャンプが可能）
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // ジャンプの力を加える
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z); // ジャンプの力を加える
             isGrounded = false; // 地面から離れる
         }
 
