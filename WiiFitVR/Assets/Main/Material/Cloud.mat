@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Cloud
-  m_Shader: {fileID: 4800000, guid: a0ef1e1c24d75a24083ab77b755a1a4e, type: 3}
+  m_Shader: {fileID: 4800000, guid: fd3ad7b6c4f8f2f43abd297ddd1c9e58, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -63,7 +63,7 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _Density: 0.309
+    - _Density: 0.768
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
