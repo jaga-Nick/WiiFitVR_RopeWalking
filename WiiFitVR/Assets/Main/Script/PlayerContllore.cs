@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Authentication.ExtendedProtection;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5f; // プレイヤーのジャンプ力
     public float balanceRecoverySpeed = 1f; // バランスが自然に戻る速さ
     public float wobbleStrength = 0.5f; // 重心の揺れの強さ
+    private Vector3 respawnPoint;
+    public static bool isGoal = false;
+    public static int DeathCount = 0;
 
     public Rigidbody rb; // プレイヤーのRigidbody
     private float balance = 0f; // プレイヤーの現在の重心の傾き
@@ -16,15 +21,22 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = true; // 地面に接しているかどうか
     private bool isRope = false; // ロープの上にいるかどうか
     private Vector3 rotationCenterOffset = new Vector3(0, -1, 0); // プレイヤーの足元を回転の中心にするためのオフセット
+    private Vector3 targetPos = new Vector3(0, 0, 0); // プレイヤーの足元を回転の中心にするためのオフセット
 
     // 外部からの風の影響
     public float windEffect = 0f; // 風の影響度を外部のスクリプトから受け取る変数
 
+
     public Texture2D horizonTexture; // 姿勢指示器の背景画像
     public Texture2D airplaneTexture; // 中央の飛行機を描くための画像
 
+    public static PlayerController instance;
+
     void Start()
     {
+        respawnPoint = transform.position;  // 初期位置を初期復活地点とする
+        isGoal = false;
+        DeathCount = 0;
     }
 
     void Update()
@@ -90,12 +102,52 @@ public class PlayerController : MonoBehaviour
         if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Rope"))
         {
             isGrounded = true; // 地面またはロープに接触している
+            targetPos = col.transform.position;
+            targetPos.x = 0;
         }
 
         if (col.gameObject.CompareTag("Rope"))
         {
             isRope = true; // ロープに乗っている状態
         }
+    }
+
+    void OnCollisionStay(Collision col)
+    {
+        if (col.gameObject.CompareTag("Ground"))
+        {
+        }
+
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.CompareTag("Checkpoint"))
+        {
+            respawnPoint = col.transform.position;  // チェックポイント更新
+            Debug.Log("チェックポイント更新");
+        }
+
+        if (col.CompareTag("GameOverZone"))
+        {
+            DeathCount++;
+            Respawn();
+        }
+
+        if (col.CompareTag("Goal"))
+        {
+            isGoal = true;
+            PlayerPrefs.SetInt("Death", DeathCount);
+            SceneManager.instance.GameResult();
+        }
+    }
+
+    public void Respawn()
+    {
+        transform.position = respawnPoint;
+        rb.velocity = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+        //transform.position = Vector3.Lerp(transform.position, targetPos, 1f * Time.deltaTime);
     }
 
     // ロープから離れた時の処理

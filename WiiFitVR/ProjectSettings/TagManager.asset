@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Rope
+  - Checkpoint
+  - GameOverZone
+  - Goal
   layers:
   - Default
   - TransparentFX

@@ -5,12 +5,11 @@
 
 # Unity特有の一時ファイルを無視
 /[Tt]emp/  # Tempフォルダを無視
-/[Oo]bj/
+/[Oo]bj/  # objフォルダを無視
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/  # Logsフォルダを無視
 /[Uu]ser[Ss]ettings/  # UserSettingsフォルダを無視
-/Temp/
 
 # メモリキャプチャが大きくなるため無視
 /[Mm]emoryCaptures/

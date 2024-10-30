@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Knockback : MonoBehaviour
 {
-    public float knockbackForce = 10f;  // ‚Á”ò‚Î‚·—Í
+    float knockbackForce = 50f;  // ‚Á”ò‚Î‚·—Í
 
     private void OnCollisionEnter(Collision collision)
     {
