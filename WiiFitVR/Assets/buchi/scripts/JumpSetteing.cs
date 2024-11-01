@@ -38,7 +38,7 @@ public class JumpSetteing : MonoBehaviour
         {
             isCrouched = true;
         }
-        else if ((isRope || isGrounded) && isCrouched && currentYPosition + 0.05f >= initialYPosition)
+        else if ((isRope || isGrounded) && isCrouched && currentYPosition + 0.1f >= initialYPosition)
         {
             Jump();
             isCrouched = false;
@@ -46,7 +46,7 @@ public class JumpSetteing : MonoBehaviour
     }
     void Jump()
     {
-        rb.AddForce(Vector3.up * 80.0f, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * 8.0f, ForceMode.Impulse);
         isGrounded = false;  // ƒWƒƒƒ“ƒv‚µ‚½‚ç’n–Ê‚ð—£‚ê‚é
         isRope = false;
     }
