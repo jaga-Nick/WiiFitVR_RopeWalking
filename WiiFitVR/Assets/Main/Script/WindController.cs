@@ -13,18 +13,32 @@ public class WindController : MonoBehaviour
     {
         if (Time.time > nextWindChangeTime)
         {
-            currentWindStrength = Random.Range(-0.3f, 0.3f);
+            currentWindStrength = Random.Range(-0.1f, 0.1f);
             windDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             windDirection.Normalize();
             nextWindChangeTime = Time.time + windChangeInterval;
-
-            // パーティクルGameObjectの向きを風の向きに合わせて回転
+            
+            // 風の角度を取得
             float angle = Mathf.Atan2(windDirection.y, windDirection.x) * Mathf.Rad2Deg;
-            //windParticleObject.transform.rotation = Quaternion.Euler(0, 0, angle); // Z軸回転
+
+            // 角度に応じてY軸回転を設定
+            if (angle > 0)
+            {
+                windParticleObject.transform.rotation = Quaternion.Euler(0, 90, 0);
+            }
+            else if (angle < 0)
+            {
+                windParticleObject.transform.rotation = Quaternion.Euler(0, -90, 0);
+            }
+            else
+            {
+                windParticleObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
 
         playerController.windEffect = currentWindStrength;
     }
+
 
     void OnGUI()
     {
