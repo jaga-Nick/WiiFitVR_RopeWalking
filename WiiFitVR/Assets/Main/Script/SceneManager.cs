@@ -31,17 +31,17 @@ public class SceneManager : MonoBehaviour
 
     public void GamePlay() //�Q�[�����
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("main");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("main 1");
     }
 
     public void GamePlay1() //�Q�[�����
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("main 1");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("main 2");
     }
 
     public void GamePlay2() //�Q�[�����
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("main 2");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("main");
     }
 
     public void GameResult() //�Q�[���I�[�o�[���

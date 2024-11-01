@@ -46,7 +46,7 @@ public class JumpSetteing : MonoBehaviour
     }
     void Jump()
     {
-        rb.AddForce(Vector3.up * 40.0f, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * 8.0f, ForceMode.Impulse);
         isGrounded = false;  // ƒWƒƒƒ“ƒv‚µ‚½‚ç’n–Ê‚ð—£‚ê‚é
         isRope = false;
     }

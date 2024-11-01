@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // プレイヤーの回転を足元を中心にする（左右に30度まで傾く）
-        Quaternion rotation = Quaternion.Euler(0, 0, balance * 30f); 
+        // プレイヤーの回転を足元を中心にする（左右に10度まで傾く）
+        Quaternion rotation = Quaternion.Euler(0, 0, balance * 10f); 
         rb.MoveRotation(rotation); // 回転を適用
     }
 
